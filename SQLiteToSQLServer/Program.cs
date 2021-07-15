@@ -7,14 +7,20 @@ namespace SQLiteToSQLServer
 {
     class Program
     {
-        static string sqliteDataSource = @"";
-        static string sqlServerConnString = "";
+        /*
+            1. Fill out the variables listed below with the information pertaining to your databases
+            2. Code in the "Database Processing" region can be left unaltered
+            3. Run the program through Visual Studio by pressing the "F5" key on your keyboard
+        */
+        static string sqliteDataSource = @"C:\Path\To\SqliteDatabase.sqlite3";
+        static string sqlServerConnString = "Data Source=<Database Server>;Initial Catalog=<Database Name>;User ID=<>; Password=<>";
         static string sqliteTableName = "";
         static string sqlServerTableName = "";
-        //structure as [sqliteColumnName, sqlServerColumnName, sqlServerDataType]
         static List<dynamic[]> columns = new List<dynamic[]> {
+            //new dynamic[]{ "<sqliteColumnName>", "<sqlServerColumnName>", System.Data.SqlDbType.<sqlServerDataType> }
         };
 
+        #region Database Processing
         static void Main(string[] args)
         {
             SqliteConnectionStringBuilder sqliteConnString;
@@ -99,5 +105,6 @@ namespace SQLiteToSQLServer
 
             Console.WriteLine("-------------------- End --------------------");
         }
+        #endregion 
     }
 }
